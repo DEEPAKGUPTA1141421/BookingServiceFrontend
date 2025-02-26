@@ -16,6 +16,7 @@ import ServiceSelectionScreen from "./src/ServiceProvider/ServiceSelection";
 import LocationSelectionScreen from "./src/ServiceProvider/LocationSelection";
 import WorkDetailsScreen from "./src/ServiceProvider/WorkDetails";
 import WorkLocationScreen from "./src/ServiceProvider/WorkLocation";
+import HomeProvider from "./src/ServiceProvider/HomeProvider";
 // Create Stack Navigator
 const Stack = createStackNavigator();
 
@@ -58,6 +59,7 @@ export default function App() {
             />
             <Stack.Screen name="WorkDetails" component={WorkDetailsScreen} />
             <Stack.Screen name="WorkLocation" component={WorkLocationScreen} />
+            <Stack.Screen name="HomeProvider" component={HomeProvider} />
           </>
         )}
       </Stack.Navigator>

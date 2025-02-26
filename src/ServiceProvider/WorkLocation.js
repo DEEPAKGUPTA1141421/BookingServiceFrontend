@@ -6,13 +6,15 @@ import {
   TouchableOpacity,
   Animated,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native"; // Import navigation hook
 import { CheckCircleIcon, MapPinIcon } from "lucide-react-native";
 import tw from "twrnc";
 
 const WorkLocationScreen = () => {
   const [location, setLocation] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
-  const slideAnim = useRef(new Animated.Value(100)).current; // Use useRef to persist
+  const slideAnim = useRef(new Animated.Value(100)).current;
+  const navigation = useNavigation(); // Navigation Hook
 
   const handleSaveLocation = () => {
     setModalVisible(true);
@@ -20,20 +22,24 @@ const WorkLocationScreen = () => {
 
   useEffect(() => {
     if (modalVisible) {
-      // Animate the popup from bottom
+      // Animate popup
       Animated.timing(slideAnim, {
         toValue: 0,
         duration: 300,
         useNativeDriver: true,
       }).start();
 
+      // Auto-hide popup and navigate after 2 seconds
       setTimeout(() => {
         Animated.timing(slideAnim, {
           toValue: 100,
           duration: 300,
           useNativeDriver: true,
-        }).start(() => setModalVisible(false)); // Hide modal after animation
-      }, 2000); // Auto-hide after 2 seconds
+        }).start(() => {
+          setModalVisible(false);
+          navigation.replace("HomeProvider"); // Navigate after popup
+        });
+      }, 2000);
     }
   }, [modalVisible]);
 
@@ -75,7 +81,7 @@ const WorkLocationScreen = () => {
         <Text style={tw`text-white text-lg font-semibold`}>Submit</Text>
       </TouchableOpacity>
 
-      {/* Success Modal - Animated Slide from Bottom */}
+      {/* Success Modal */}
       {modalVisible && (
         <Animated.View
           style={[
