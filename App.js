@@ -10,6 +10,8 @@ import BookingHistory from "./src/Order/BookingHistory";
 import OrderDetails from "./src/Order/OrderDetails";
 import FAQCategory from "./src/Home/UserProfileList/FAQ/FAQCategory";
 import FAQs from "./src/Home/UserProfileList/FAQ/FAQScreen";
+import Login from "./src/ServiceProvider/Login";
+import ProfileSetup from "./src/ServiceProvider/ProfileSetup";
 // Create Stack Navigator
 const Stack = createStackNavigator();
 
@@ -40,6 +42,8 @@ export default function App() {
             <Stack.Screen name="OrderDetails" component={OrderDetails} />
             <Stack.Screen name="FAQs" component={FAQs} />
             <Stack.Screen name="FAQCategory" component={FAQCategory} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="ProfileSetup" component={ProfileSetup} />
           </>
         )}
       </Stack.Navigator>

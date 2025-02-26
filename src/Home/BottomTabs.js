@@ -4,6 +4,7 @@ import HomeScreen from "./HomeScreen";
 import ProfileScreen from "../profile/ProfileScreen";
 import CartScreen from "../Cart/CartScreen";
 import BookingHistory from "../Order/BookingHistory";
+import ProviderLoginScreen from "../ServiceProvider/Login";
 import Svg, { Circle, Path, Rect } from "react-native-svg";
 const Tab = createBottomTabNavigator();
 
@@ -63,6 +64,18 @@ const CartIcon = ({ size = 24, color = "black" }) => (
   </Svg>
 );
 
+const ProviderIcon = ({ size = 24, color = "black" }) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <Path
+      d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </Svg>
+);
+
 const BottomTabs = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
@@ -88,6 +101,8 @@ const BottomTabs = () => (
           return <BookingIcon size={size} color={color} />;
         if (route.name === "Cart")
           return <CartIcon size={size} color={color} />;
+        if (route.name === "Provider")
+          return <ProviderIcon size={size} color={color} />;
       },
     })}
   >
@@ -95,6 +110,7 @@ const BottomTabs = () => (
     <Tab.Screen name="Profile" component={ProfileScreen} />
     <Tab.Screen name="Bookings" component={BookingHistory} />
     <Tab.Screen name="Cart" component={CartScreen} />
+    <Tab.Screen name="Provider" component={ProviderLoginScreen} />
   </Tab.Navigator>
 );
 
