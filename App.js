@@ -12,6 +12,10 @@ import FAQCategory from "./src/Home/UserProfileList/FAQ/FAQCategory";
 import FAQs from "./src/Home/UserProfileList/FAQ/FAQScreen";
 import Login from "./src/ServiceProvider/Login";
 import ProfileSetup from "./src/ServiceProvider/ProfileSetup";
+import ServiceSelectionScreen from "./src/ServiceProvider/ServiceSelection";
+import LocationSelectionScreen from "./src/ServiceProvider/LocationSelection";
+import WorkDetailsScreen from "./src/ServiceProvider/WorkDetails";
+import WorkLocationScreen from "./src/ServiceProvider/WorkLocation";
 // Create Stack Navigator
 const Stack = createStackNavigator();
 
@@ -44,6 +48,16 @@ export default function App() {
             <Stack.Screen name="FAQCategory" component={FAQCategory} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="ProfileSetup" component={ProfileSetup} />
+            <Stack.Screen
+              name="ServiceSelection"
+              component={ServiceSelectionScreen}
+            />
+            <Stack.Screen
+              name="LocationSelection"
+              component={LocationSelectionScreen}
+            />
+            <Stack.Screen name="WorkDetails" component={WorkDetailsScreen} />
+            <Stack.Screen name="WorkLocation" component={WorkLocationScreen} />
           </>
         )}
       </Stack.Navigator>
