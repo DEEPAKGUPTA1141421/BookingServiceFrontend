@@ -1,0 +1,48 @@
+import React, { useState, useEffect } from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import SplashScreen from "./src/Home/SplashScreen";
+import BottomTabs from "./src/Home/BottomTabs";
+import AddressScreen from "./src/Home/UserProfileList/AddressScreen";
+import ChooseService from "./src/Home/BookingServiceScreen";
+import ReviewBookingPage from "./src/Bookings/ReviewBookingPage";
+import BookingHistory from "./src/Order/BookingHistory";
+import OrderDetails from "./src/Order/OrderDetails";
+import FAQCategory from "./src/Home/UserProfileList/FAQ/FAQCategory";
+import FAQs from "./src/Home/UserProfileList/FAQ/FAQScreen";
+// Create Stack Navigator
+const Stack = createStackNavigator();
+
+export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSplash(false);
+    }, 3000); // Hide splash after 3 seconds
+  }, []);
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {showSplash ? (
+          <Stack.Screen name="Splash" component={SplashScreen} />
+        ) : (
+          <>
+            <Stack.Screen name="Main" component={BottomTabs} />
+            <Stack.Screen name="AddressScreen" component={AddressScreen} />
+            <Stack.Screen name="ChooseService" component={ChooseService} />
+            <Stack.Screen
+              name="ReviewBookingPage"
+              component={ReviewBookingPage}
+            />
+            <Stack.Screen name="BookingHistory" component={BookingHistory} />
+            <Stack.Screen name="OrderDetails" component={OrderDetails} />
+            <Stack.Screen name="FAQs" component={FAQs} />
+            <Stack.Screen name="FAQCategory" component={FAQCategory} />
+          </>
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
