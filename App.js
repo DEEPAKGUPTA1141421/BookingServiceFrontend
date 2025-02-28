@@ -17,6 +17,11 @@ import LocationSelectionScreen from "./src/ServiceProvider/LocationSelection";
 import WorkDetailsScreen from "./src/ServiceProvider/WorkDetails";
 import WorkLocationScreen from "./src/ServiceProvider/WorkLocation";
 import HomeProvider from "./src/ServiceProvider/HomeProvider";
+import BankTransfersScreen from "./src/ServiceProvider/BankTransferScreen";
+import EarningsScreen from "./src/ServiceProvider/EarningsScreen";
+import AroundYou from "./src/ServiceProvider/AroundYou";
+import NotificationScreen from "./src/ServiceProvider/NotificationScreen";
+import UserProfile from "./src/ServiceProvider/UserProfile";
 // Create Stack Navigator
 const Stack = createStackNavigator();
 
@@ -60,6 +65,17 @@ export default function App() {
             <Stack.Screen name="WorkDetails" component={WorkDetailsScreen} />
             <Stack.Screen name="WorkLocation" component={WorkLocationScreen} />
             <Stack.Screen name="HomeProvider" component={HomeProvider} />
+            <Stack.Screen
+              name="BankTransfersScreen"
+              component={BankTransfersScreen}
+            />
+            <Stack.Screen name="EarningsScreen" component={EarningsScreen} />
+            <Stack.Screen name="AroundYou" component={AroundYou} />
+            <Stack.Screen
+              name="NotificationScreen"
+              component={NotificationScreen}
+            />
+            <Stack.Screen name="UserProfile" component={UserProfile} />
           </>
         )}
       </Stack.Navigator>
